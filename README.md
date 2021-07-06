@@ -1,2 +1,2 @@
 # myhospital-backend
-Backend of hospital information system.
+> Backend of hospital information system.
