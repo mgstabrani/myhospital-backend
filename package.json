@@ -1,0 +1,30 @@
+{
+  "name": "myhospital-backend",
+  "version": "1.0.0",
+  "description": "> Backend of hospital information system.",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgstabrani/myhospital-backend.git"
+  },
+  "author": "Mgs. Tabrani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgstabrani/myhospital-backend/issues"
+  },
+  "homepage": "https://github.com/mgstabrani/myhospital-backend#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "nodemon": "^2.0.9"
+  }
+}
