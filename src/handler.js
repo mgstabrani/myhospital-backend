@@ -183,6 +183,33 @@ const getListOfRegByIdAppointment = (request, h) => {
   response.code(404);
   return response;
 };
+
+const applyAppointmentById = (request, h) => {
+  const { id } = request.params;
+
+  const {
+    username,
+  } = request.payload;
+
+  const index = appointments.findIndex((appointment) => appointment.id === id);
+
+  if (index !== -1 && appointments[index].capacity > appointments[index].listOfReg.length) {
+    appointments[index].listOfReg.push(username);
+    const response = h.response({
+      status: 'success',
+      message: 'application is successfull',
+    });
+    response.code(200);
+    return response;
+  }
+  const response = h.response({
+    status: 'fail',
+    message: 'application is failed',
+  });
+  response.code(404);
+  return response;
+};
+
 module.exports = {
-  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment, getListOfRegByIdAppointment,
+  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment, getListOfRegByIdAppointment, applyAppointmentById,
 };
