@@ -75,8 +75,10 @@ const createPatient = (request, h) => {
 
 const createAppointment = (request, h) => {
   const {
-    doctorName, appointmentdesc, listOfReg,
+    doctorName, appointmentdesc,
   } = request.payload;
+
+  const listOfReg = [];
 
   const id = nanoid(16);
   const newAppointment = {
