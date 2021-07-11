@@ -75,7 +75,7 @@ const createPatient = (request, h) => {
 
 const createAppointment = (request, h) => {
   const {
-    doctorName, appointmentdesc,
+    doctorName, appointmentdesc, capacity,
   } = request.payload;
 
   const listOfReg = [];
@@ -85,6 +85,7 @@ const createAppointment = (request, h) => {
     id,
     doctorName,
     appointmentdesc,
+    capacity,
     listOfReg,
   };
 
@@ -134,7 +135,7 @@ const deleteAppointment = (request, h) => {
 const updateAppointment = (request, h) => {
   const { id } = request.params;
 
-  const { doctorName, appointmentdesc } = request.payload;
+  const { doctorName, appointmentdesc, capacity } = request.payload;
 
   const index = appointments.findIndex((appointment) => appointment.id === id);
 
@@ -143,6 +144,7 @@ const updateAppointment = (request, h) => {
       ...appointments[index],
       doctorName,
       appointmentdesc,
+      capacity,
     };
 
     const response = h.response({
