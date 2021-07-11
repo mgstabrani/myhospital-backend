@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { nanoid } = require('nanoid');
 const { patiens, admin, appointments } = require('./data');
 
@@ -25,7 +26,7 @@ const getAdmin = (request, h) => {
   return response;
 };
 
-const getAllAppoinments = (request, h) => {
+const getAllAppointments = (request, h) => {
   const response = h.response({
     status: 'success',
     data: {
@@ -72,26 +73,26 @@ const createPatient = (request, h) => {
   return response;
 };
 
-const createAppoinment = (request, h) => {
+const createAppointment = (request, h) => {
   const {
-    doctorName, appoinmentdesc, listOfReg,
+    doctorName, appointmentdesc, listOfReg,
   } = request.payload;
 
   const id = nanoid(16);
-  const newAppoinment = {
+  const newAppointment = {
     id,
     doctorName,
-    appoinmentdesc,
+    appointmentdesc,
     listOfReg,
   };
 
-  appointments.push(newAppoinment);
-  const isSuccess = appointments.filter((appoinment) => appoinment.id === id);
+  appointments.push(newAppointment);
+  const isSuccess = appointments.filter((appointment) => appointment.id === id);
 
   if (isSuccess) {
     const response = h.response({
       status: 'success',
-      message: 'Appoinment is successfully created',
+      message: 'Appointment is successfully created',
       data: {
         id,
       },
@@ -100,7 +101,7 @@ const createAppoinment = (request, h) => {
     return response;
   } const response = h.response({
     status: 'fail',
-    message: 'failed to create new appoinment',
+    message: 'failed to create new appointment',
   });
   response.code(500);
   return response;
@@ -128,6 +129,35 @@ const deleteAppointment = (request, h) => {
   return response;
 };
 
+const updateAppointment = (request, h) => {
+  const { id } = request.params;
+
+  const { doctorName, appointmentdesc } = request.payload;
+
+  const index = appointments.findIndex((appointment) => appointment.id === id);
+
+  if (index !== -1) {
+    appointments[index] = {
+      ...appointments[index],
+      doctorName,
+      appointmentdesc,
+    };
+
+    const response = h.response({
+      status: 'success',
+      message: 'appointment is successfully updated',
+    });
+    response.code(200);
+    return response;
+  }
+  const response = h.response({
+    status: 'fail',
+    message: 'failed to update appointment',
+  });
+  response.code(404);
+  return response;
+};
+
 module.exports = {
-  getAllPatients, getAdmin, getAllAppoinments, createPatient, createAppoinment, deleteAppointment,
+  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment,
 };

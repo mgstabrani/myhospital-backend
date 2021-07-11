@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 const {
-  getAllPatients, getAdmin, getAllAppoinments, createPatient, createAppoinment, deleteAppointment,
+  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment,
 } = require('./handler');
 
 const routes = [
@@ -16,7 +17,7 @@ const routes = [
   {
     method: 'GET',
     path: '/appointments',
-    handler: getAllAppoinments,
+    handler: getAllAppointments,
   },
   {
     method: 'POST',
@@ -26,12 +27,17 @@ const routes = [
   {
     method: 'POST',
     path: '/appointments',
-    handler: createAppoinment,
+    handler: createAppointment,
   },
   {
     method: 'DELETE',
     path: '/appointments/{id}',
     handler: deleteAppointment,
+  },
+  {
+    method: 'PUT',
+    path: '/appointments/{id}',
+    handler: updateAppointment,
   },
 ];
 
