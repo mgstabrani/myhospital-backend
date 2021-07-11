@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const {
-  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment,
+  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment, getListOfRegByIdAppointment,
 } = require('./handler');
 
 const routes = [
@@ -38,6 +38,11 @@ const routes = [
     method: 'PUT',
     path: '/appointments/{id}',
     handler: updateAppointment,
+  },
+  {
+    method: 'GET',
+    path: '/appointments/list/{id}',
+    handler: getListOfRegByIdAppointment,
   },
 ];
 

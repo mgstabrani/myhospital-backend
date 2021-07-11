@@ -160,6 +160,27 @@ const updateAppointment = (request, h) => {
   return response;
 };
 
+const getListOfRegByIdAppointment = (request, h) => {
+  const { id } = request.params;
+
+  const appointment = appointments.filter((x) => x.id === id)[0];
+
+  if (appointment !== undefined) {
+    return {
+      status: 'success',
+      data: {
+        listOfReg: appointment.listOfReg,
+      },
+    };
+  }
+
+  const response = h.response({
+    status: 'fail',
+    message: 'appointment is not found',
+  });
+  response.code(404);
+  return response;
+};
 module.exports = {
-  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment,
+  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment, getListOfRegByIdAppointment,
 };
