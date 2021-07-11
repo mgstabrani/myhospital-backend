@@ -210,6 +210,41 @@ const applyAppointmentById = (request, h) => {
   return response;
 };
 
+const cancelAppointmentById = (request, h) => {
+  const { id } = request.params;
+
+  const {
+    username,
+  } = request.payload;
+
+  const index = appointments.findIndex((appointment) => appointment.id === id);
+
+  if (index !== -1) {
+    const indexUsername = appointments[index].listOfReg.findIndex((patient) => patient === username);
+    if (indexUsername !== -1) {
+      appointments[index].listOfReg.splice(index, 1);
+      const response = h.response({
+        status: 'success',
+        message: 'application successfully canceled',
+      });
+      response.code(200);
+      return response;
+    }
+    const response = h.response({
+      status: 'fail',
+      message: 'username is not found',
+    });
+    response.code(404);
+    return response;
+  }
+  const response = h.response({
+    status: 'fail',
+    message: 'appointment is not found',
+  });
+  response.code(404);
+  return response;
+};
+
 module.exports = {
-  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment, getListOfRegByIdAppointment, applyAppointmentById,
+  getAllPatients, getAdmin, getAllAppointments, createPatient, createAppointment, deleteAppointment, updateAppointment, getListOfRegByIdAppointment, applyAppointmentById, cancelAppointmentById,
 };
