@@ -1,4 +1,6 @@
-const { getAllPatients, getAdmin, getAllAppoinments } = require('./handler');
+const {
+  getAllPatients, getAdmin, getAllAppoinments, createPatient,
+} = require('./handler');
 
 const routes = [
   {
@@ -15,6 +17,11 @@ const routes = [
     method: 'GET',
     path: '/appoinments',
     handler: getAllAppoinments,
+  },
+  {
+    method: 'POST',
+    path: '/patients',
+    handler: createPatient,
   },
 ];
 

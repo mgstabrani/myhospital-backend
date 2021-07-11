@@ -1,11 +1,11 @@
 const patiens = [];
 const admin = {
-  'First name': 'Mgs.',
-  'Last name': 'Tabrani',
-  Age: 19,
-  Email: 'mgstabrani19@gmail.com',
-  Username: 'mgstabrani',
-  Password: 'mypassword',
+  firstName: 'Mgs.',
+  lastName: 'Tabrani',
+  age: 19,
+  email: 'mgstabrani19@gmail.com',
+  username: 'mgstabrani',
+  password: 'mypassword',
 };
 const appointments = [];
 
