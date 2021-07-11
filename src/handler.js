@@ -106,6 +106,28 @@ const createAppoinment = (request, h) => {
   return response;
 };
 
+const deleteAppointment = (request, h) => {
+  const { id } = request.params;
+
+  const index = appointments.findIndex((appointment) => appointment.id === id);
+
+  if (index !== -1) {
+    appointments.splice(index, 1);
+    const response = h.response({
+      status: 'success',
+      message: 'appointment is successfully deleted',
+    });
+    response.code(200);
+    return response;
+  }
+  const response = h.response({
+    status: 'fail',
+    message: 'failed to delete appointment',
+  });
+  response.code(404);
+  return response;
+};
+
 module.exports = {
-  getAllPatients, getAdmin, getAllAppoinments, createPatient, createAppoinment,
+  getAllPatients, getAdmin, getAllAppoinments, createPatient, createAppoinment, deleteAppointment,
 };
