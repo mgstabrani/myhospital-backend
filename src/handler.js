@@ -1,4 +1,5 @@
-const { patiens, admin, appoinments } = require('./data');
+const { nanoid } = require('nanoid');
+const { patiens, admin, appointments } = require('./data');
 
 const getAllPatients = (request, h) => {
   const response = h.response({
@@ -28,7 +29,7 @@ const getAllAppoinments = (request, h) => {
   const response = h.response({
     status: 'success',
     data: {
-      appoinments,
+      appointments,
     },
   });
 
@@ -71,6 +72,40 @@ const createPatient = (request, h) => {
   return response;
 };
 
+const createAppoinment = (request, h) => {
+  const {
+    doctorName, appoinmentdesc, listOfReg,
+  } = request.payload;
+
+  const id = nanoid(16);
+  const newAppoinment = {
+    id,
+    doctorName,
+    appoinmentdesc,
+    listOfReg,
+  };
+
+  appointments.push(newAppoinment);
+  const isSuccess = appointments.filter((appoinment) => appoinment.id === id);
+
+  if (isSuccess) {
+    const response = h.response({
+      status: 'success',
+      message: 'Appoinment is successfully created',
+      data: {
+        id,
+      },
+    });
+    response.code(201);
+    return response;
+  } const response = h.response({
+    status: 'fail',
+    message: 'failed to create new appoinment',
+  });
+  response.code(500);
+  return response;
+};
+
 module.exports = {
-  getAllPatients, getAdmin, getAllAppoinments, createPatient,
+  getAllPatients, getAdmin, getAllAppoinments, createPatient, createAppoinment,
 };

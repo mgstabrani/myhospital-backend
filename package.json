@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/mgstabrani/myhospital-backend#readme",
   "dependencies": {
-    "@hapi/hapi": "^20.1.5"
+    "@hapi/hapi": "^20.1.5",
+    "nanoid": "^3.1.23"
   },
   "devDependencies": {
     "eslint": "^7.30.0",

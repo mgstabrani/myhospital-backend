@@ -1,5 +1,5 @@
 const {
-  getAllPatients, getAdmin, getAllAppoinments, createPatient,
+  getAllPatients, getAdmin, getAllAppoinments, createPatient, createAppoinment,
 } = require('./handler');
 
 const routes = [
@@ -15,13 +15,18 @@ const routes = [
   },
   {
     method: 'GET',
-    path: '/appoinments',
+    path: '/appointments',
     handler: getAllAppoinments,
   },
   {
     method: 'POST',
     path: '/patients',
     handler: createPatient,
+  },
+  {
+    method: 'POST',
+    path: '/appointments',
+    handler: createAppoinment,
   },
 ];
 
