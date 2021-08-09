@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon src/server.js",
-    "lint": "eslint ./"
+    "lint": "eslint ./ && echo 'Lint complete !!'"
   },
   "pre-commit": [
     "lint"
