@@ -4,10 +4,16 @@
   "description": "> Backend of hospital information system.",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "nodemon src/server.js",
-    "lint": "eslint ./"
+    "lint": "eslint ./ && echo 'Lint complete !!'"
   },
+  "pre-commit": [
+    "lint"
+  ],
+  "pre-push": [
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mgstabrani/myhospital-backend.git"
@@ -26,6 +32,9 @@
     "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
-    "nodemon": "^2.0.9"
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.9",
+    "pre-commit": "^1.2.2",
+    "pre-push": "^0.1.1"
   }
 }
