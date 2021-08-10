@@ -26,6 +26,8 @@
   "homepage": "https://github.com/mgstabrani/myhospital-backend#readme",
   "dependencies": {
     "@hapi/hapi": "^20.1.5",
+    "dotenv": "^10.0.0",
+    "mysql": "^2.18.1",
     "nanoid": "^3.1.23"
   },
   "devDependencies": {
