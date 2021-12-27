@@ -28,6 +28,12 @@ sudo apt install npm
 ```shell
 npm install
 ```
+- Create .env file. The file must contain these variables.
+```
+DB_HOST=localhost
+DB_USER=user
+DB_PASSWORD=password
+```
 
 ## Run
 ```
