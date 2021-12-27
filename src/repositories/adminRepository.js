@@ -2,11 +2,11 @@ const Models = require('./models');
 
 class AdminRepository {
   constructor() {
-    this.admminModel = Models.Admin;
+    this.adminModel = Models.Admin;
   }
 
   async findAll(offset, limit) {
-    return this.admminModel
+    return this.adminModel
       .findAndCountAll({
         order: [['updatedAt', 'DESC']],
         attributes: ['id'],
@@ -23,7 +23,7 @@ class AdminRepository {
   }
 
   async findById(id) {
-    return this.admminModel
+    return this.adminModel
       .findOne({
         where: { id: parseInt(id, 10) },
         raw: true,

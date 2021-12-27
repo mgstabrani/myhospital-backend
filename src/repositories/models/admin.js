@@ -23,7 +23,6 @@ const Admin = db.define(
     password: {
       type: Sequelize.STRING(),
       allowNull: false,
-      unique: true,
     },
   },
   {
