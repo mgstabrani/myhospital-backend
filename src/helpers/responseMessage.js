@@ -10,4 +10,10 @@ module.exports = {
     notFound: 'doctor not found',
     create: 'doctor has been created',
   },
+  appointment: {
+    notFound: 'appointment not found',
+    create: 'appointment has been created',
+    update: 'appointment has been updated',
+    delete: 'appointment has been deleted',
+  },
 };
