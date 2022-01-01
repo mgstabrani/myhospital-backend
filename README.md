@@ -10,7 +10,7 @@
 ## Technologies
 - NodeJS
 - Node Package Manager (NPM)
-- Hapi module
+- Express
 - Nanoid module
 - Nodemon module
 - Eslint module
@@ -30,9 +30,11 @@ npm install
 ```
 - Create .env file. The file must contain these variables.
 ```
+DB_NAME=myhospital
+DB_USERNAME=myhospital
+DB_PASSWORD=mypassword
 DB_HOST=localhost
-DB_USER=user
-DB_PASSWORD=password
+DB_PORT=3306
 ```
 
 ## Run
@@ -46,7 +48,6 @@ npm run dev
 ## Reference
 - [NodeJS](https://nodejs.org/en/)
 - [Node Package Manager](https://www.npmjs.com/)
-- [Hapi Module](https://hapi.dev/)
 - [Nodemon Module](https://www.npmjs.com/package/nodemon)
 - [Nanoid](https://www.npmjs.com/package/nanoid)
 - [AirBnB Code Style](https://github.com/airbnb/javascript)
