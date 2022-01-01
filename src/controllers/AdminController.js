@@ -1,13 +1,19 @@
+<<<<<<< HEAD
 const { admin: adminMessage } = require('../helpers/responseMessage');
 
+=======
+>>>>>>> development
 class AdminController {
   constructor(adminUsecase) {
     this.adminUsecase = adminUsecase;
     this.getAllAdmin = this.getAllAdmin.bind(this);
     this.getAdminById = this.getAdminById.bind(this);
+<<<<<<< HEAD
     this.createAdmin = this.createAdmin.bind(this);
     this.updateAdmin = this.updateAdmin.bind(this);
     this.deleteAdmin = this.deleteAdmin.bind(this);
+=======
+>>>>>>> development
   }
 
   async getAllAdmin(req, res, next) {
@@ -23,6 +29,7 @@ class AdminController {
       .then((admin) => res.json(admin))
       .catch((error) => next(error));
   }
+<<<<<<< HEAD
 
   async createAdmin(req, res, next) {
     return this.adminUsecase
@@ -52,6 +59,8 @@ class AdminController {
       }))
       .catch((error) => next(error));
   }
+=======
+>>>>>>> development
 }
 
 module.exports = AdminController;

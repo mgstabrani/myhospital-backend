@@ -23,6 +23,7 @@ class AdminUsecase {
       });
   }
 
+<<<<<<< HEAD
   async createAdmin(payload) {
     return this.adminRepo
       .create(payload)
@@ -49,6 +50,8 @@ class AdminUsecase {
       });
   }
 
+=======
+>>>>>>> development
   async resolveAdmins(ids) {
     const admins = [];
     await Promise.all(

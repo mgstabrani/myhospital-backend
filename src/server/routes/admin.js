@@ -3,9 +3,12 @@ module.exports = function adminRouter(express, adminController) {
 
   router.get('/', adminController.getAllAdmin);
   router.get('/:id', adminController.getAdminById);
+<<<<<<< HEAD
   router.post('/', adminController.createAdmin);
   router.put('/', adminController.updateAdmin);
   router.delete('/', adminController.deleteAdmin);
+=======
+>>>>>>> development
 
   return router;
 };
