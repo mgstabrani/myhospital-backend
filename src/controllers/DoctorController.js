@@ -6,6 +6,11 @@ class DoctorController {
     this.getAllDoctor = this.getAllDoctor.bind(this);
     this.getDoctorById = this.getDoctorById.bind(this);
     this.createDoctor = this.createDoctor.bind(this);
+<<<<<<< HEAD
+    this.updateDoctor = this.updateDoctor.bind(this);
+    this.deleteDoctor = this.deleteDoctor.bind(this);
+=======
+>>>>>>> development
   }
 
   async getAllDoctor(req, res, next) {
@@ -31,6 +36,28 @@ class DoctorController {
       }))
       .catch((error) => next(error));
   }
+<<<<<<< HEAD
+
+  async updateDoctor(req, res, next) {
+    return this.doctorUsecase
+      .updateDoctor(req.body)
+      .then((doctor) => res.json({
+        message: doctorMessage.update,
+        data: doctor,
+      }))
+      .catch((error) => next(error));
+  }
+
+  async deleteDoctor(req, res, next) {
+    return this.doctorUsecase
+      .deleteDoctor(req.body.id)
+      .then(() => res.json({
+        message: doctorMessage.delete,
+      }))
+      .catch((error) => next(error));
+  }
+=======
+>>>>>>> development
 }
 
 module.exports = DoctorController;

@@ -29,6 +29,26 @@ class PatientUsecase {
       .then((patient) => patient);
   }
 
+  async updatePatient(paylod) {
+    await this.patientRepo
+      .findById(paylod.id)
+      .then((patient) => {
+        if (!patient) throw new NotFoundError(patientMessage.notFound);
+
+        return this.patientRepo.update(paylod);
+      });
+  }
+
+  async deletePatient(id) {
+    await this.patientRepo
+      .findById(id)
+      .then((patient) => {
+        if (!patient) throw new NotFoundError(patientMessage.notFound);
+
+        return this.patientRepo.delete(id);
+      });
+  }
+
   async resolvePatients(ids) {
     const patients = [];
     await Promise.all(

@@ -36,6 +36,26 @@ class DoctorRepository {
       .create(doctor)
       .then((result) => result);
   }
+
+  async update(doctor) {
+    return this.doctorModel
+      .update(doctor, {
+        where: {
+          id: doctor.id,
+        },
+      })
+      .then((result) => result);
+  }
+
+  async delete(id) {
+    return this.doctorModel
+      .destroy({
+        where: {
+          id: parseInt(id, 10),
+        },
+      })
+      .then((result) => result);
+  }
 }
 
 module.exports = DoctorRepository;

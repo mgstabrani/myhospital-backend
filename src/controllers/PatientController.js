@@ -6,6 +6,8 @@ class PatientController {
     this.getAllPatient = this.getAllPatient.bind(this);
     this.getPatientById = this.getPatientById.bind(this);
     this.createPatient = this.createPatient.bind(this);
+    this.updatePatient = this.updatePatient.bind(this);
+    this.deletePatient = this.deletePatient.bind(this);
   }
 
   async getAllPatient(req, res, next) {
@@ -28,6 +30,25 @@ class PatientController {
       .then((patient) => res.status(201).json({
         message: patientMessage.create,
         data: patient,
+      }))
+      .catch((error) => next(error));
+  }
+
+  async updatePatient(req, res, next) {
+    return this.patientUsecase
+      .updatePatient(req.body)
+      .then((patient) => res.json({
+        message: patientMessage.update,
+        data: patient,
+      }))
+      .catch((error) => next(error));
+  }
+
+  async deletePatient(req, res, next) {
+    return this.patientUsecase
+      .deletePatient(req.body.id)
+      .then(() => res.json({
+        message: patientMessage.delete,
       }))
       .catch((error) => next(error));
   }

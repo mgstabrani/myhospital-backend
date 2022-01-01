@@ -30,6 +30,32 @@ class AdminRepository {
       })
       .then((admin) => admin);
   }
+
+  async create(admin) {
+    return this.adminModel
+      .create(admin)
+      .then((result) => result);
+  }
+
+  async update(admin) {
+    return this.adminModel
+      .update(admin, {
+        where: {
+          id: admin.id,
+        },
+      })
+      .then((result) => result);
+  }
+
+  async delete(id) {
+    return this.adminModel
+      .destroy({
+        where: {
+          id: parseInt(id, 10),
+        },
+      })
+      .then((result) => result);
+  }
 }
 
 module.exports = AdminRepository;

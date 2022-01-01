@@ -23,6 +23,35 @@ class AdminUsecase {
       });
   }
 
+<<<<<<< HEAD
+  async createAdmin(payload) {
+    return this.adminRepo
+      .create(payload)
+      .then((result) => result);
+  }
+
+  async updateAdmin(paylod) {
+    await this.adminRepo
+      .findById(paylod.id)
+      .then((admin) => {
+        if (!admin) throw new NotFoundError(adminMessage.notFound);
+
+        return this.adminRepo.update(paylod);
+      });
+  }
+
+  async deleteAdmin(id) {
+    await this.adminRepo
+      .findById(id)
+      .then((admin) => {
+        if (!admin) throw new NotFoundError(adminMessage.notFound);
+
+        return this.adminRepo.delete(id);
+      });
+  }
+
+=======
+>>>>>>> development
   async resolveAdmins(ids) {
     const admins = [];
     await Promise.all(
