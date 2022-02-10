@@ -30,7 +30,7 @@
     "express": "^4.17.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "nanoid": "^3.1.23",
+    "nanoid": "^3.1.31",
     "sequelize": "^7.0.0-alpha.2"
   },
   "devDependencies": {
